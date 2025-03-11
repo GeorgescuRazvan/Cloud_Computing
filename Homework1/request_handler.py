@@ -53,10 +53,8 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
                 set_headers(self, 409)
                 send_json_response(self, {"error": "Book with given id already exists"})
             else:
-                data["_id"] = book_id
-                storage_manager.create_book_with_id(book_id, data)
-                set_headers(self, 201)
-                send_json_response(self, {"message": "Book created", "book": data})
+                set_headers(self, 404)
+                send_json_response(self, {"error": "Cannot create book with custom id"})
         else:
             # POST /books creates a new book with auto-generated id
             new_id = storage_manager.generate_new_id()
@@ -92,10 +90,8 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
                 set_headers(self, 200)
                 send_json_response(self, {"message": "Book updated"})
             else:
-                data["_id"] = book_id
-                storage_manager.create_book_with_id(book_id, data)
-                set_headers(self, 201)
-                send_json_response(self, {"message": "Book created", "book": data})
+                set_headers(self, 404)
+                send_json_response(self, {"error": "Book id not found"})
         else:
             # PUT /books replaces the entire collection (expects a list of books)
             if not isinstance(data, list):
