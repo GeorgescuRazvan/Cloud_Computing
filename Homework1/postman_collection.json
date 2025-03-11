@@ -1,0 +1,145 @@
+{
+    "info": {
+      "name": "Books API Collection",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "_postman_id": "12345678-90ab-cdef-1234-567890abcdef"
+    },
+    "item": [
+      {
+        "name": "Books Collection",
+        "item": [
+          {
+            "name": "GET /books",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/books",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "POST /books",
+            "request": {
+              "method": "POST",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"title\": \"Sample Book\", \"author\": \"Author Name\", \"description\": \"A sample book description.\"}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/books",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books"]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "DELETE /books",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/books",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books"]
+              }
+            },
+            "response": []
+          }
+        ]
+      },
+      {
+        "name": "Books Single Item",
+        "item": [
+          {
+            "name": "GET /books/{id}",
+            "request": {
+              "method": "GET",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/books/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books", "1"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "PUT /books/{id}",
+            "request": {
+              "method": "PUT",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\"title\": \"Updated Book\", \"author\": \"Updated Author\", \"description\": \"Updated description.\"}"
+              },
+              "url": {
+                "raw": "http://localhost:8080/books/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books", "1"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": []
+          },
+          {
+            "name": "DELETE /books/{id}",
+            "request": {
+              "method": "DELETE",
+              "header": [],
+              "url": {
+                "raw": "http://localhost:8080/books/1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "8080",
+                "path": ["books", "1"],
+                "variable": [
+                  {
+                    "key": "id",
+                    "value": "1"
+                  }
+                ]
+              }
+            },
+            "response": []
+          }
+        ]
+      }
+    ]
+}
